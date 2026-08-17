@@ -335,6 +335,77 @@ function Index() {
             ))}
           </div>
         </section>
+
+        <section id="contato" className="border-t border-border bg-card/40 py-24">
+          <div className="mx-auto grid max-w-6xl gap-14 px-6 md:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-bold md:text-4xl">Vamos conversar</h2>
+              <p className="mt-4 text-muted-foreground">
+                Conte em poucas linhas como funciona seu atendimento hoje. Eu respondo com uma
+                proposta de automação — agente de IA, landing page ou integração.
+              </p>
+              <Button asChild size="lg" className={`mt-8 ${shineClasses}`}>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon className="size-4" />
+                  Falar no WhatsApp
+                </a>
+              </Button>
+              <p className="mt-8 text-sm text-muted-foreground">Ou por e-mail</p>
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="font-display text-lg text-primary hover:underline"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </div>
+            <form onSubmit={handleSubmit} className="surface-card space-y-4 rounded-lg p-7">
+              <div>
+                <Label htmlFor="nome">Nome</Label>
+                <Input
+                  id="nome"
+                  maxLength={100}
+                  value={form.nome}
+                  onChange={(e) => setForm({ ...form, nome: e.target.value })}
+                  className="mt-2"
+                />
+              </div>
+              <div>
+                <Label htmlFor="empresa">Empresa</Label>
+                <Input
+                  id="empresa"
+                  maxLength={100}
+                  value={form.empresa}
+                  onChange={(e) => setForm({ ...form, empresa: e.target.value })}
+                  className="mt-2"
+                />
+              </div>
+              <div>
+                <Label htmlFor="contato-campo">E-mail ou WhatsApp</Label>
+                <Input
+                  id="contato-campo"
+                  maxLength={120}
+                  value={form.contato}
+                  onChange={(e) => setForm({ ...form, contato: e.target.value })}
+                  className="mt-2"
+                />
+              </div>
+              <div>
+                <Label htmlFor="mensagem">O que você precisa</Label>
+                <Textarea
+                  id="mensagem"
+                  rows={4}
+                  maxLength={1000}
+                  value={form.mensagem}
+                  onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
+                  className="mt-2"
+                />
+              </div>
+              <Button type="submit" className="w-full">
+                Enviar mensagem
+              </Button>
+            </form>
+          </div>
+        </section>
       </main>
 
       <footer className="border-t border-border py-8">
