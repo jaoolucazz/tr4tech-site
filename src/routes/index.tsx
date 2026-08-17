@@ -5,9 +5,9 @@ import {
   ArrowUpRight,
   Bot,
   CalendarCheck,
+  Code2,
   LayoutTemplate,
   MessageSquare,
-  Plug,
   Sparkles,
   Table2,
   Workflow,
@@ -24,17 +24,17 @@ import logo from "@/assets/logo.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TR4 Tech — Agentes de IA, automações e landing pages" },
+      { title: "TR4 Tech — Sistemas sob medida, agentes de IA e automações" },
       {
         name: "description",
         content:
-          "Criação de agentes de IA para WhatsApp, integração com CRM e landing pages que capturam leads. Cases: Okay Coworking, DKS Construtora, Smart Insp e Smart Target.",
+          "Desenvolvimento de sistemas web sob medida, agentes de IA para WhatsApp, integração com CRM e landing pages que capturam leads. Cases: Okay Coworking, DKS Construtora, Smart Insp e Smart Target.",
       },
-      { property: "og:title", content: "TR4 Tech — Agentes de IA e automações" },
+      { property: "og:title", content: "TR4 Tech — Sistemas, agentes de IA e automações" },
       {
         property: "og:description",
         content:
-          "Atendimento automatizado no WhatsApp, leads direto no CRM e landing pages que convertem.",
+          "Sistemas web sob medida, atendimento automatizado no WhatsApp e leads direto no CRM.",
       },
     ],
   }),
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
 const CONTACT_EMAIL = "contato@tr4tech.com";
 // TODO: trocar pelo número real (formato: código do país + DDD + número, só dígitos)
 const WHATSAPP_NUMBER = "55XXXXXXXXXXX";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+const WHATSAPP_URL = `https://wa.me/5531997760743`;
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -67,6 +67,11 @@ function trackSpotlight(e: React.MouseEvent<HTMLElement>) {
 
 const services = [
   {
+    icon: Code2,
+    title: "Desenvolvimento de sistemas sob medida",
+    text: "Sistemas web completos, do modelo de dados à interface, para processos que planilha e ferramenta pronta não resolvem mais. Também assumo manutenção e evolução de sistemas já em produção.",
+  },
+  {
     icon: Bot,
     title: "Agentes de IA para WhatsApp",
     text: "Atendimento automático que responde dúvidas, envia valores, consulta disponibilidade e agenda — reduzindo o trabalho manual do time.",
@@ -80,11 +85,6 @@ const services = [
     icon: LayoutTemplate,
     title: "Landing pages que geram leads",
     text: "Páginas de apresentação de serviços com formulário integrado: os dados caem em planilha e disparam notificação no WhatsApp.",
-  },
-  {
-    icon: Plug,
-    title: "Integrações e melhoria de sistemas",
-    text: "Gestão técnica, evolução de sistemas em produção e integrações entre ferramentas que a operação já usa.",
   },
 ];
 
@@ -106,16 +106,16 @@ const cases = [
   {
     name: "Smart Insp",
     url: "https://smartinsp.com.br/",
-    role: "Gestor de TI",
-    tags: ["Gestão de TI", "Evolução do sistema", "Processos"],
-    text: "Atuo como gestor de TI da empresa, à frente das decisões técnicas e das melhorias contínuas dentro do sistema.",
+    role: "Gestor de TI e desenvolvedor",
+    tags: ["Gestão de TI", ".NET", "Indicadores/BI", "Integrações"],
+    text: "Atuo como gestor de TI e desenvolvedor do sistema: backend em .NET, agendamentos com regras de negócio configuráveis, integração com Google Drive para anexos e um construtor de indicadores estilo BI para acompanhar a operação. Decido o roadmap técnico e evoluo o sistema em produção.",
   },
   {
     name: "Smart Target",
     url: "https://www.stinsp.com.br/",
     role: "Desenvolvimento do produto",
-    tags: ["Produto", "Do início ao fim", "Sistema completo"],
-    text: "Participei do desenvolvimento do sistema como um todo, do início ao lançamento.",
+    tags: ["Produto", "TypeScript", "Gestão de risco", "Do início ao fim"],
+    text: "Participei do desenvolvimento do sistema como um todo, do modelo de dados ao lançamento: uma plataforma de gestão de risco ocupacional, com cadastro de empresas, locais e ocupações, formulários de avaliação técnica e parametrização de risco por local.",
   },
 ];
 
@@ -207,16 +207,16 @@ function Index() {
           <div className="hero-grid" />
           <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
             <Badge variant="outline" className="border-primary/40 text-primary">
-              Agentes de IA · Automação · Landing pages
+              Desenvolvimento de sistemas · Agentes de IA · Automação
             </Badge>
             <h1 className="mt-6 max-w-3xl text-4xl leading-[1.05] font-bold md:text-6xl">
-              Automatizo o atendimento e a captação de leads da sua{" "}
+              Desenvolvo os sistemas e automatizo o atendimento da sua{" "}
               <span className="text-gradient">operação</span>.
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Sou João Lucas, da TR4 Tech. Construo agentes de IA que conversam no WhatsApp,
-              resolvem demandas e entregam os leads prontos no CRM — além de landing pages
-              integradas a planilhas e notificações automáticas.
+              Sou João Lucas, da TR4 Tech. Desenvolvo sistemas web sob medida e agentes de IA que
+              conversam no WhatsApp, resolvem demandas e entregam os leads prontos no CRM — além de
+              landing pages integradas a planilhas e notificações automáticas.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild size="lg" className={shineClasses}>
@@ -233,7 +233,7 @@ function Index() {
               {[
                 ["4+", "projetos entregues"],
                 ["24/7", "atendimento ativo"],
-                ["CRM", "leads integrados"],
+                ["Full-stack", "do banco à interface"],
                 ["0", "planilha preenchida à mão"],
               ].map(([value, label]) => (
                 <div key={label}>
@@ -350,60 +350,7 @@ function Index() {
                   Falar no WhatsApp
                 </a>
               </Button>
-              <p className="mt-8 text-sm text-muted-foreground">Ou por e-mail</p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="font-display text-lg text-primary hover:underline"
-              >
-                {CONTACT_EMAIL}
-              </a>
             </div>
-            <form onSubmit={handleSubmit} className="surface-card space-y-4 rounded-lg p-7">
-              <div>
-                <Label htmlFor="nome">Nome</Label>
-                <Input
-                  id="nome"
-                  maxLength={100}
-                  value={form.nome}
-                  onChange={(e) => setForm({ ...form, nome: e.target.value })}
-                  className="mt-2"
-                />
-              </div>
-              <div>
-                <Label htmlFor="empresa">Empresa</Label>
-                <Input
-                  id="empresa"
-                  maxLength={100}
-                  value={form.empresa}
-                  onChange={(e) => setForm({ ...form, empresa: e.target.value })}
-                  className="mt-2"
-                />
-              </div>
-              <div>
-                <Label htmlFor="contato-campo">E-mail ou WhatsApp</Label>
-                <Input
-                  id="contato-campo"
-                  maxLength={120}
-                  value={form.contato}
-                  onChange={(e) => setForm({ ...form, contato: e.target.value })}
-                  className="mt-2"
-                />
-              </div>
-              <div>
-                <Label htmlFor="mensagem">O que você precisa</Label>
-                <Textarea
-                  id="mensagem"
-                  rows={4}
-                  maxLength={1000}
-                  value={form.mensagem}
-                  onChange={(e) => setForm({ ...form, mensagem: e.target.value })}
-                  className="mt-2"
-                />
-              </div>
-              <Button type="submit" className="w-full">
-                Enviar mensagem
-              </Button>
-            </form>
           </div>
         </section>
       </main>
@@ -411,7 +358,7 @@ function Index() {
       <footer className="border-t border-border py-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-6 text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
           <span>TR4 Tech · tr4tech.com</span>
-          <span>Agentes de IA, automações e landing pages</span>
+          <span>Sistemas sob medida, agentes de IA e automações</span>
         </div>
       </footer>
 
