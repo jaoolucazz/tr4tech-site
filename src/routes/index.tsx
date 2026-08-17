@@ -8,6 +8,7 @@ import {
   Code2,
   LayoutTemplate,
   MessageSquare,
+  Plug,
   Sparkles,
   Table2,
   Workflow,
@@ -43,8 +44,8 @@ export const Route = createFileRoute("/")({
 
 const CONTACT_EMAIL = "contato@tr4tech.com";
 // TODO: trocar pelo número real (formato: código do país + DDD + número, só dígitos)
-const WHATSAPP_NUMBER = "55XXXXXXXXXXX";
-const WHATSAPP_URL = `https://wa.me/5531997760743`;
+const WHATSAPP_NUMBER = "5531997760743";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -85,6 +86,11 @@ const services = [
     icon: LayoutTemplate,
     title: "Landing pages que geram leads",
     text: "Páginas de apresentação de serviços com formulário integrado: os dados caem em planilha e disparam notificação no WhatsApp.",
+  },
+  {
+    icon: Plug,
+    title: "Integrações e melhoria de sistemas",
+    text: "Gestão técnica, evolução de sistemas em produção e integrações entre ferramentas que a operação já usa.",
   },
 ];
 
